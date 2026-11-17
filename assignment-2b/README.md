@@ -173,12 +173,17 @@ installed dependency environment and cached pretrained-model download.
 
 ## Repository and data access
 
-Source, manifests, report and measured results are intended for the public assignment
-repository. Raw audio, cached features, environments and temporary files are ignored.
+Source, manifests, report and measured results are published in the
+[public assignment repository](https://github.com/ParichayMago/iiith-assignment-2b-tess).
+Raw audio, cached features, environments and temporary files are ignored.
 The dataset provider's metadata lists noncommercial/no-derivatives terms; use the
 original download and consult the provider's current terms rather than redistributing
-audio here. Checkpoints are reproducible with the commands above; release packaging
-is handled separately from source control.
+audio here. Checkpoints are reproducible with the commands above and available in
+the [assignment release](https://github.com/ParichayMago/iiith-assignment-2b-tess/releases/tag/assignment-2b).
+The 7.7 MiB ZIP contains all 36 task-model checkpoints and SHA-256 checksums; extract
+it into this `assignment-2b/` directory. The same checksum inventory is committed as
+`Results/checkpoint_sha256.json`. Frozen DistilBERT weights are downloaded separately
+at the pinned revision when generating features.
 
 ## References
 
