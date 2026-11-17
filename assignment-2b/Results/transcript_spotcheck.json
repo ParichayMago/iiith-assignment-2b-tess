@@ -1,0 +1,117 @@
+{
+  "method": "Local Whisper tiny.en, 14 'back' recordings covering both speakers and seven emotions, plus sample-rate and clipping anomalies. ASR is fallible and not a human transcript audit. Predictions never enter classifiers.",
+  "samples": [
+    {
+      "id": "OAF_back_angry",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_disgust",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_fear",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_happy",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_neutral",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_ps",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_back_sad",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_food_fear",
+      "expected": "say the word food",
+      "asr": "Say the word food.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "OAF_pad_ps",
+      "expected": "say the word pad",
+      "asr": "Say the word pad.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_angry",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_disgust",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_fear",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_happy",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_neutral",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_ps",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    },
+    {
+      "id": "YAF_back_sad",
+      "expected": "say the word back",
+      "asr": "Say the word back.",
+      "carrier_found": true,
+      "target_found": true
+    }
+  ]
+}

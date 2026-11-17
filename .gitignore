@@ -1,0 +1,8 @@
+**/.venv/
+**/.local/
+**/__pycache__/
+**/.pytest_cache/
+assignment-2b/data/audio/
+assignment-2b/checkpoints/
+*.pyc
+.DS_Store

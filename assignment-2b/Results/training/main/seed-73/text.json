@@ -1,0 +1,208 @@
+{
+  "pipeline": "text",
+  "protocol": "main",
+  "seed": 73,
+  "config": {
+    "split_seed": 1701,
+    "seeds": [
+      13,
+      37,
+      73
+    ],
+    "protocols": [
+      "main",
+      "oaf_to_yaf",
+      "yaf_to_oaf"
+    ],
+    "sample_rate": 16000,
+    "n_fft": 512,
+    "win_length": 400,
+    "hop_length": 160,
+    "n_mels": 64,
+    "trim_db": 35,
+    "trim_margin_ms": 50,
+    "text_model": "distilbert/distilbert-base-uncased",
+    "text_revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+    "batch_size": 64,
+    "speech_epochs": 45,
+    "head_epochs": 60,
+    "patience": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "threads": 4,
+    "device": "cpu",
+    "checkpoint_selection": "validation macro-F1, validation loss as tie-breaker",
+    "fusion": "frozen speech and text encoders, standardize embeddings on training partition, concatenate, MLP",
+    "control": "speech_control: frozen speech encoder plus the same hidden width/depth MLP as fusion"
+  },
+  "manifest_sha256": "578571fb0028716176da25bfdfe2386687b75f115c7613944d1178be2b6d5a3c",
+  "best_epoch": 2,
+  "training_examples": 1960,
+  "validation_examples": 420,
+  "training_seconds": 0.18243912500020087,
+  "trainable_parameters": 49671,
+  "selection_metric": "validation macro-F1, validation loss as tie-breaker",
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "loss": 2.057591872312585,
+        "accuracy": 0.08775510204081632,
+        "macro_f1": 0.0860312610921181,
+        "balanced_accuracy": 0.08775510204081631
+      },
+      "validation": {
+        "loss": 1.9641531785329183,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.1392417589172153,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.029516458999751194
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "loss": 2.0180167538779124,
+        "accuracy": 0.10357142857142858,
+        "macro_f1": 0.10270246025418688,
+        "balanced_accuracy": 0.10357142857142858
+      },
+      "validation": {
+        "loss": 1.9588150944028582,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.1392417589172153,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.017368374999932712
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "loss": 2.005177435582998,
+        "accuracy": 0.09744897959183674,
+        "macro_f1": 0.09669853205151958,
+        "balanced_accuracy": 0.09744897959183674
+      },
+      "validation": {
+        "loss": 1.9564920743306478,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.13011649087598456,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.016512917000000016
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "loss": 2.0015330655234203,
+        "accuracy": 0.10510204081632653,
+        "macro_f1": 0.10261380712507127,
+        "balanced_accuracy": 0.10510204081632654
+      },
+      "validation": {
+        "loss": 1.9554177795137677,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.13273906620762604,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.01746183400064183
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "loss": 1.9901540804882438,
+        "accuracy": 0.10561224489795919,
+        "macro_f1": 0.10384212529936572,
+        "balanced_accuracy": 0.10561224489795917
+      },
+      "validation": {
+        "loss": 1.9525239819572084,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.1380330156744258,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.016164708999895083
+    },
+    {
+      "epoch": 6,
+      "train": {
+        "loss": 1.9904591297616765,
+        "accuracy": 0.1086734693877551,
+        "macro_f1": 0.10549961640899194,
+        "balanced_accuracy": 0.1086734693877551
+      },
+      "validation": {
+        "loss": 1.9530036358606249,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.13326982246696964,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.017164457999570004
+    },
+    {
+      "epoch": 7,
+      "train": {
+        "loss": 1.9885827361320962,
+        "accuracy": 0.08979591836734693,
+        "macro_f1": 0.087231629659083,
+        "balanced_accuracy": 0.08979591836734693
+      },
+      "validation": {
+        "loss": 1.9514368897392635,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.13687446446067136,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.016700500000297325
+    },
+    {
+      "epoch": 8,
+      "train": {
+        "loss": 1.9816888867592326,
+        "accuracy": 0.09897959183673469,
+        "macro_f1": 0.09851806395404526,
+        "balanced_accuracy": 0.09897959183673469
+      },
+      "validation": {
+        "loss": 1.9508067744118827,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.13305339101934474,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.01677354200000991
+    },
+    {
+      "epoch": 9,
+      "train": {
+        "loss": 1.9798985734277843,
+        "accuracy": 0.10051020408163265,
+        "macro_f1": 0.09937451428424152,
+        "balanced_accuracy": 0.10051020408163265
+      },
+      "validation": {
+        "loss": 1.9499967836198353,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.138475102323409,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.016929749999690102
+    },
+    {
+      "epoch": 10,
+      "train": {
+        "loss": 1.9740315593018825,
+        "accuracy": 0.11326530612244898,
+        "macro_f1": 0.1118810688951036,
+        "balanced_accuracy": 0.11326530612244898
+      },
+      "validation": {
+        "loss": 1.9496869064512707,
+        "accuracy": 0.14285714285714285,
+        "macro_f1": 0.1269927849587387,
+        "balanced_accuracy": 0.14285714285714285
+      },
+      "seconds": 0.01663899999948626
+    }
+  ],
+  "max_epochs": 60
+}

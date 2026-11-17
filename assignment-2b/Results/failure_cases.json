@@ -1,0 +1,107 @@
+[
+  {
+    "protocol": "main",
+    "id": "YAF_came_sad",
+    "transcript": "say the word came",
+    "true_label": "sadness",
+    "speech_prediction": "disgust",
+    "fusion_prediction": "disgust",
+    "fusion_confidence": 0.97544676,
+    "analysis": "Both systems choose the same wrong emotion, consistent with a shared acoustic representation limitation.",
+    "nearest_training_emotions": {
+      "disgust": 5
+    },
+    "nearest_training_ids": [
+      "YAF_tape_disgust",
+      "YAF_read_disgust",
+      "YAF_time_disgust",
+      "YAF_rose_disgust",
+      "YAF_keep_disgust"
+    ],
+    "neighbour_method": "Five Euclidean nearest training-only speech embeddings, standardized with training means/SDs; descriptive, not a fitted classifier."
+  },
+  {
+    "protocol": "oaf_to_yaf",
+    "id": "YAF_dead_happy",
+    "transcript": "say the word dead",
+    "true_label": "happiness",
+    "speech_prediction": "anger",
+    "fusion_prediction": "anger",
+    "fusion_confidence": 0.9999653,
+    "analysis": "Both systems choose the same wrong emotion, consistent with a shared acoustic representation limitation. The test speaker was absent from training; speaker shift is a plausible contributor, not a proven phonetic cause.",
+    "nearest_training_emotions": {
+      "anger": 5
+    },
+    "nearest_training_ids": [
+      "OAF_time_angry",
+      "OAF_rush_angry",
+      "OAF_long_angry",
+      "OAF_near_angry",
+      "OAF_mood_angry"
+    ],
+    "neighbour_method": "Five Euclidean nearest training-only speech embeddings, standardized with training means/SDs; descriptive, not a fitted classifier."
+  },
+  {
+    "protocol": "oaf_to_yaf",
+    "id": "YAF_take_fear",
+    "transcript": "say the word take",
+    "true_label": "fear",
+    "speech_prediction": "anger",
+    "fusion_prediction": "anger",
+    "fusion_confidence": 0.9998381,
+    "analysis": "Both systems choose the same wrong emotion, consistent with a shared acoustic representation limitation. The test speaker was absent from training; speaker shift is a plausible contributor, not a proven phonetic cause.",
+    "nearest_training_emotions": {
+      "anger": 5
+    },
+    "nearest_training_ids": [
+      "OAF_dodge_angry",
+      "OAF_cab_angry",
+      "OAF_rag_angry",
+      "OAF_ditch_angry",
+      "OAF_burn_angry"
+    ],
+    "neighbour_method": "Five Euclidean nearest training-only speech embeddings, standardized with training means/SDs; descriptive, not a fitted classifier."
+  },
+  {
+    "protocol": "yaf_to_oaf",
+    "id": "OAF_make_ps",
+    "transcript": "say the word make",
+    "true_label": "pleasant_surprise",
+    "speech_prediction": "fear",
+    "fusion_prediction": "fear",
+    "fusion_confidence": 0.99968874,
+    "analysis": "Both systems choose the same wrong emotion, consistent with a shared acoustic representation limitation. The test speaker was absent from training; speaker shift is a plausible contributor, not a proven phonetic cause.",
+    "nearest_training_emotions": {
+      "fear": 5
+    },
+    "nearest_training_ids": [
+      "YAF_beg_fear",
+      "YAF_pike_fear",
+      "YAF_south_fear",
+      "YAF_chat_fear",
+      "YAF_book_fear"
+    ],
+    "neighbour_method": "Five Euclidean nearest training-only speech embeddings, standardized with training means/SDs; descriptive, not a fitted classifier."
+  },
+  {
+    "protocol": "yaf_to_oaf",
+    "id": "OAF_pearl_happy",
+    "transcript": "say the word pearl",
+    "true_label": "happiness",
+    "speech_prediction": "pleasant_surprise",
+    "fusion_prediction": "pleasant_surprise",
+    "fusion_confidence": 0.99958605,
+    "analysis": "Both systems choose the same wrong emotion, consistent with a shared acoustic representation limitation. The test speaker was absent from training; speaker shift is a plausible contributor, not a proven phonetic cause.",
+    "nearest_training_emotions": {
+      "pleasant_surprise": 5
+    },
+    "nearest_training_ids": [
+      "YAF_ton_ps",
+      "YAF_beg_ps",
+      "YAF_chain_ps",
+      "YAF_choice_ps",
+      "YAF_ring_ps"
+    ],
+    "neighbour_method": "Five Euclidean nearest training-only speech embeddings, standardized with training means/SDs; descriptive, not a fitted classifier."
+  }
+]

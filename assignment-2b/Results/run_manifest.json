@@ -1,0 +1,19 @@
+{
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "torch": "2.15.0",
+  "device": "cpu",
+  "threads": 4,
+  "source_sha256": {
+    "configs/experiment.json": "ae14b7058c776d3a88778d73f856ce232b6135a9ea51dbb2757cfd1b8c7b59a3",
+    "requirements.txt": "905c544c335cf0d682e8410d335fe38fb851dab2e369e3d937b59e70e96a38da",
+    "scripts/audit_dataset.py": "31aae76b74e5eaee292cfdbea66948b3d62847920c4c59acf5ae2c8df9028e49",
+    "scripts/prepare_features.py": "25064419da368620ec552ca893f6e761e3caf8f7008e6416f160caaf95b4613f",
+    "src/tess_emotion/__init__.py": "05ab32218537a74e11c4f9407a1483132e77f8676dd87a71a6f2ffa28ceb7cb6",
+    "src/tess_emotion/data.py": "a396684528c0027d138a177d842509b83dea2f4f1fa609a616c377e891b38487",
+    "src/tess_emotion/networks.py": "1868bb9ac13c8b45f59c5a76ad720684a47c362714378aa0c681e36a635b98e8",
+    "src/tess_emotion/training.py": "14316eb0d8949c885be00b151a0c58628c58ea6c9c76fb12a745cd6d6b7b6691"
+  },
+  "note": "Configuration and implementation snapshot before final held-out evaluation. Runtime measurements include ordinary shared-machine load."
+}

@@ -1,0 +1,17 @@
+{
+  "method": "Separate PCA fitted on training embeddings; same 420 held-out recordings plotted in each panel. Axes are not shared across modalities. Seed 13 was fixed in advance. Points shuffled only for rendering; no label-driven dimensionality reduction.",
+  "explained_variance_ratio": {
+    "Speech temporal representation": [
+      0.4011678993701935,
+      0.2636025547981262
+    ],
+    "Text contextual representation": [
+      0.10850151628255844,
+      0.07782194763422012
+    ],
+    "Fusion representation": [
+      0.30934154987335205,
+      0.2492082417011261
+    ]
+  }
+}

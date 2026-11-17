@@ -1,0 +1,6 @@
+*.pdf binary
+*.png binary
+*.npz binary
+*.pt binary
+# Preserve CSV bytes: manifest SHA-256 is part of checkpoint provenance.
+*.csv -text whitespace=cr-at-eol

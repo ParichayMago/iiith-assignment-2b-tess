@@ -1,0 +1,93 @@
+{
+  "source_url": "https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess",
+  "original_dataset_doi": "https://doi.org/10.5683/SP2/E8H2MF",
+  "archive_sha256": "0ee5f2dfd8de7f3ce6d79a30d3ff17cd3b1f4ba77e9af270e76feaa1eb00bd0b",
+  "archive_wav_entries": 5600,
+  "unique_recordings": 2800,
+  "identical_duplicate_entries_removed": 2800,
+  "duplicate_audio_across_distinct_ids": 0,
+  "missing_speaker_word_emotion_combinations": 0,
+  "filename_repairs": [
+    {
+      "archive_member": "TESS Toronto emotional speech set data/OAF_neutral/OA_bite_neutral.wav",
+      "canonical_filename": "OAF_bite_neutral.wav",
+      "reason": "Missing F in speaker prefix; enclosing OAF_neutral directory supplies speaker metadata."
+    },
+    {
+      "archive_member": "tess toronto emotional speech set data/TESS Toronto emotional speech set data/OAF_neutral/OA_bite_neutral.wav",
+      "canonical_filename": "OAF_bite_neutral.wav",
+      "reason": "Missing F in speaker prefix; enclosing OAF_neutral directory supplies speaker metadata."
+    }
+  ],
+  "speakers": [
+    "OAF",
+    "YAF"
+  ],
+  "target_words": 200,
+  "labels": [
+    "anger",
+    "disgust",
+    "fear",
+    "happiness",
+    "neutral",
+    "pleasant_surprise",
+    "sadness"
+  ],
+  "class_counts": {
+    "anger": 400,
+    "disgust": 400,
+    "fear": 400,
+    "happiness": 400,
+    "neutral": 400,
+    "pleasant_surprise": 400,
+    "sadness": 400
+  },
+  "sample_rate_counts": {
+    "24414": 2799,
+    "96000": 1
+  },
+  "duration_s": {
+    "min": 1.254075530433358,
+    "median": 2.0479028426312773,
+    "max": 2.9848038010977307,
+    "total": 5754.351726642501
+  },
+  "files_with_clipping": 1,
+  "transcript_provenance": "No transcript files in the supplied Kaggle archive. Reconstructed from the original dataset's documented carrier phrase 'Say the word _____' and target-word filename field; not verbatim human annotations.",
+  "text_only_max_deterministic_accuracy": {
+    "train": 0.14285714285714285,
+    "validation": 0.14285714285714285,
+    "test": 0.14285714285714285
+  },
+  "split_seed": 1701,
+  "split_counts": {
+    "main": {
+      "validation": 420,
+      "train": 1960,
+      "test": 420
+    },
+    "oaf_to_yaf": {
+      "validation": 210,
+      "train": 980,
+      "excluded": 1400,
+      "test": 210
+    },
+    "yaf_to_oaf": {
+      "excluded": 1400,
+      "test": 210,
+      "validation": 210,
+      "train": 980
+    }
+  },
+  "checks_passed": [
+    "audio decodes",
+    "finite mono samples",
+    "complete 2x200x7 grid",
+    "duplicate bytes match",
+    "no duplicate PCM across distinct IDs",
+    "no word/PCM/ID overlap between partitions",
+    "balanced labels in every partition",
+    "held-out speakers disjoint"
+  ],
+  "license_note": "Kaggle lists CC BY-NC-ND 4.0; raw audio is excluded from the source repository. See the original provider's terms for reuse."
+}

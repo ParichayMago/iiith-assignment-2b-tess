@@ -1,0 +1,268 @@
+{
+  "status": "passed",
+  "training_source_snapshot_matches": true,
+  "prediction_files_verified": 36,
+  "checks": [
+    "exact test IDs and labels",
+    "finite normalized probabilities",
+    "confidence and argmax",
+    "independent confusion matrix/accuracy/macro-F1",
+    "text-only deterministic 1/7 result",
+    "summary reconciliation",
+    "genuine failure cases"
+  ],
+  "runs": [
+    {
+      "protocol": "main",
+      "seed": 13,
+      "pipeline": "speech",
+      "examples": 420,
+      "accuracy": 0.9928571428571429
+    },
+    {
+      "protocol": "main",
+      "seed": 13,
+      "pipeline": "text",
+      "examples": 420,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "main",
+      "seed": 13,
+      "pipeline": "fusion",
+      "examples": 420,
+      "accuracy": 0.9952380952380953
+    },
+    {
+      "protocol": "main",
+      "seed": 13,
+      "pipeline": "speech_control",
+      "examples": 420,
+      "accuracy": 0.9952380952380953
+    },
+    {
+      "protocol": "main",
+      "seed": 37,
+      "pipeline": "speech",
+      "examples": 420,
+      "accuracy": 0.9976190476190476
+    },
+    {
+      "protocol": "main",
+      "seed": 37,
+      "pipeline": "text",
+      "examples": 420,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "main",
+      "seed": 37,
+      "pipeline": "fusion",
+      "examples": 420,
+      "accuracy": 0.9976190476190476
+    },
+    {
+      "protocol": "main",
+      "seed": 37,
+      "pipeline": "speech_control",
+      "examples": 420,
+      "accuracy": 0.9976190476190476
+    },
+    {
+      "protocol": "main",
+      "seed": 73,
+      "pipeline": "speech",
+      "examples": 420,
+      "accuracy": 0.9928571428571429
+    },
+    {
+      "protocol": "main",
+      "seed": 73,
+      "pipeline": "text",
+      "examples": 420,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "main",
+      "seed": 73,
+      "pipeline": "fusion",
+      "examples": 420,
+      "accuracy": 0.9928571428571429
+    },
+    {
+      "protocol": "main",
+      "seed": 73,
+      "pipeline": "speech_control",
+      "examples": 420,
+      "accuracy": 0.9928571428571429
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 13,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.47619047619047616
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 13,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 13,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.47619047619047616
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 13,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.4857142857142857
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 37,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.17142857142857143
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 37,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 37,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.17142857142857143
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 37,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.16666666666666666
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 73,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.22380952380952382
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 73,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 73,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.21428571428571427
+    },
+    {
+      "protocol": "oaf_to_yaf",
+      "seed": 73,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.21904761904761905
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 13,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.4142857142857143
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 13,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 13,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.4095238095238095
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 13,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.4142857142857143
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 37,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.26666666666666666
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 37,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 37,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.2523809523809524
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 37,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.24285714285714285
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 73,
+      "pipeline": "speech",
+      "examples": 210,
+      "accuracy": 0.37142857142857144
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 73,
+      "pipeline": "text",
+      "examples": 210,
+      "accuracy": 0.14285714285714285
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 73,
+      "pipeline": "fusion",
+      "examples": 210,
+      "accuracy": 0.3952380952380952
+    },
+    {
+      "protocol": "yaf_to_oaf",
+      "seed": 73,
+      "pipeline": "speech_control",
+      "examples": 210,
+      "accuracy": 0.37142857142857144
+    }
+  ]
+}
