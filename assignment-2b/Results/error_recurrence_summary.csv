@@ -1,0 +1,7 @@
+protocol,pipeline,test_clips,error_events,unique_wrong_clips,wrong_all_seeds
+main,speech,420,7,4,1
+main,fusion,420,6,3,1
+oaf_to_yaf,speech,210,447,196,88
+oaf_to_yaf,fusion,210,449,200,87
+yaf_to_oaf,speech,210,409,174,101
+yaf_to_oaf,fusion,210,408,175,89

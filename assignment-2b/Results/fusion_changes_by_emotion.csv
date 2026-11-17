@@ -1,0 +1,13 @@
+protocol,true_label,fix,break
+main,happiness,1,0
+oaf_to_yaf,anger,4,0
+oaf_to_yaf,disgust,1,10
+oaf_to_yaf,fear,4,0
+oaf_to_yaf,neutral,0,2
+oaf_to_yaf,pleasant_surprise,0,1
+oaf_to_yaf,sadness,3,1
+yaf_to_oaf,disgust,1,9
+yaf_to_oaf,fear,8,1
+yaf_to_oaf,neutral,2,0
+yaf_to_oaf,pleasant_surprise,2,9
+yaf_to_oaf,sadness,8,1

@@ -1,0 +1,3 @@
+# Additional dependency for post-hoc acoustic measurements; training pins unchanged.
+-r requirements.txt
+praat-parselmouth==0.4.7

@@ -7,6 +7,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from tess_emotion.data import ROOT, config
 from tess_emotion.training import checkpoint_path, load_checkpoint
+from tess_emotion.provenance import same_execution_config
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--stage", choices=["train", "test", "all"], default="all")
@@ -20,7 +21,7 @@ for action in (["train", "test"] if args.stage == "all" else [args.stage]):
             for pipeline in pipelines:
                 if action == "train" and checkpoint_path(protocol, seed, pipeline).exists():
                     existing = load_checkpoint(checkpoint_path(protocol, seed, pipeline))
-                    if existing["config"] != config():
+                    if not same_execution_config(existing["config"], config()):
                         raise RuntimeError("Existing checkpoint has a different config; move it before retraining.")
                     print(f"Resume: existing checkpoint {protocol}/{seed}/{pipeline}", flush=True)
                     continue

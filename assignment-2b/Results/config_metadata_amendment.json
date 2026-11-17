@@ -1,0 +1,9 @@
+{
+  "field": "control",
+  "reason": "Correct inaccurate architecture prose; training code, numerical settings, checkpoints and predictions are unchanged.",
+  "original_snapshot": "Results/training_config_original.json",
+  "original_sha256": "ae14b7058c776d3a88778d73f856ce232b6135a9ea51dbb2757cfd1b8c7b59a3",
+  "corrected_sha256": "a424cf282a6be6887500dcde91c459b0ca07a761372e8f4784661dd6baf81c06",
+  "before": "speech_control: frozen speech encoder plus the same hidden width/depth MLP as fusion",
+  "after": "speech_control: frozen speech encoder plus a 96-to-537-to-7 MLP; same depth and approximately matched parameter count as fusion's 864-to-64-to-7 MLP, different hidden width"
+}

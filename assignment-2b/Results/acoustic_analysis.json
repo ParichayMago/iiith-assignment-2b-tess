@@ -1,0 +1,70 @@
+{
+  "purpose": "Post-hoc descriptive analysis after fixed test evaluation; no tuning or retraining.",
+  "recordings": 2800,
+  "test_recordings": 420,
+  "audio_hashes_verified": 2800,
+  "parselmouth_version": "0.4.7",
+  "praat_version": "6.1.38",
+  "method": {
+    "audio": "16 kHz resample_poly; exact saved classifier trim boundaries; no amplitude normalization.",
+    "pitch": "Praat raw autocorrelation to_pitch_ac, 10 ms step, 75-600 Hz; other parameters explicit in script. Median and 90th/10th percentile ratio over voiced frames.",
+    "pitch_range_sensitivity": "Repeat at 60-700 Hz; same raw autocorrelation algorithm. This does not validate pitch against human annotation.",
+    "rms": "20 log10(full-clip RMS / digital full scale); recorded level, not calibrated loudness or vocal effort.",
+    "centroid": "Mean over nonzero magnitude-STFT frame centroids; 512 FFT, 400-sample periodic Hann, 160 hop, reflect-centered; includes unvoiced regions.",
+    "paired_speaker_shifts": "Within each emotion, match the same 30 test words; median YAF minus OAF, F0 in semitones. Percentile interval from 2000 bootstrap resamples of word pairs, seed 1701. Conditional on these two actors, not a speaker-population interval; no multiple-testing claim.",
+    "case_distance": "RMS distance of log-F0 (semitones re 100 Hz), F0 spread, RMS level and centroid to training-class medians, scaled by pooled training IQR. Main references use the same speaker; transfer references use the sole training speaker. Four features fixed before extraction; descriptive, not a trained classifier."
+  },
+  "sensitivity": {
+    "median_absolute_change_st": 0.03923699632289719,
+    "max_absolute_change_st": 4.679758400985698,
+    "over_one_semitone": 75,
+    "test_over_one_semitone": 11
+  },
+  "input_sha256": {
+    "configs/experiment.json": "a424cf282a6be6887500dcde91c459b0ca07a761372e8f4784661dd6baf81c06",
+    "data/manifests/manifest.csv": "578571fb0028716176da25bfdfe2386687b75f115c7613944d1178be2b6d5a3c",
+    "Results/preprocessing.json": "85ae1d4884f4c2f8d7dc958103c2446b09817dcb2cff738f1ada4757ace85248",
+    "Results/failure_cases.json": "c85434741529caaff726e582394742b66eef660315305fb0dc7b7feb29bd16da",
+    "Results/fusion_comparison.csv": "88e21c4b4514d5591a53681a2c4a481b0af67f6a76a3c19af80e90e6be9a0ec2",
+    "Results/predictions/main-13-speech.csv": "4785fc04ae1a66d34deff0718ceda75caee8ac0035c3aca93bf4706bc53b094f",
+    "Results/predictions/main-13-fusion.csv": "53095268a40264ffc0550b5a8a0bb0a38df6ac18aca71ad4eebe74c739cdf0e3",
+    "Results/predictions/main-37-speech.csv": "70f87c7f27fe26d8ab02401debba00a931c5d55e071c95766a955c29262c5f4a",
+    "Results/predictions/main-37-fusion.csv": "662f4dcc2f509b49168ea01dbcc48810c2460a135854fb78759c79714cde12b0",
+    "Results/predictions/main-73-speech.csv": "69d15202fdb86b29dfc2fc440b4906610f3bdc2981b142fb7d52fa4d1558ddc1",
+    "Results/predictions/main-73-fusion.csv": "c21b0ef71a846550e55bb04cba69f653ff80184ccac0e87b9c2322f9677ae7dd",
+    "Results/predictions/oaf_to_yaf-13-speech.csv": "472e5e41f904ea8f16227706c9c7016e05333a2706cc560ef1a023aff6acd4bf",
+    "Results/predictions/oaf_to_yaf-13-fusion.csv": "bace11e138bd891f1c70b6d8791c496a652607467be70d76ad8fd36fa9be8c67",
+    "Results/predictions/oaf_to_yaf-37-speech.csv": "8a6ba7c3a9bf6f4074f836d1fca44a999384eff2a79d848399c940a266629990",
+    "Results/predictions/oaf_to_yaf-37-fusion.csv": "32810bfa6cde36fdc492b674a95312f78d94f6cbf8ea1c888d214b2ab36fa2c1",
+    "Results/predictions/oaf_to_yaf-73-speech.csv": "a50e4b980a9fc8c8153df0b38a3c05af2cb7866d076736c5eaa07b38ee9fba28",
+    "Results/predictions/oaf_to_yaf-73-fusion.csv": "3e2d939e4a01a6b127e5bfd4c4859331d2cf0840fe5d74467c33330d933e516c",
+    "Results/predictions/yaf_to_oaf-13-speech.csv": "895a3c79f2905d882975252bf0b51488d6f72c7188adc674bf9de162b25316cc",
+    "Results/predictions/yaf_to_oaf-13-fusion.csv": "b91a48495bb0d5bc975f5d0c92216ae5d856807bcd8839faacfae1a313d9db2c",
+    "Results/predictions/yaf_to_oaf-37-speech.csv": "6617a5d7cff5c5541b33f32ff52b017a9f2b89b2422d28bba59a80db22c2116a",
+    "Results/predictions/yaf_to_oaf-37-fusion.csv": "75146d9052a585849fd8d49f85a8418f6d685a821fd2f097eae3e4513bfd1627",
+    "Results/predictions/yaf_to_oaf-73-speech.csv": "8043be05d225c65da4951151fdf25bf72c7f8c35fa079c7e0d59df5ac7260366",
+    "Results/predictions/yaf_to_oaf-73-fusion.csv": "bc8c92af4be727b3848965c8a2b08d59456d8b9807e969f27304084d57a53899"
+  },
+  "source_sha256": {
+    "scripts/analyze_acoustics.py": "50cfc953894c58b4a3eb03f1044e42c9031b2e5729adc4b521e0afa8ceb1a0fa",
+    "requirements-analysis.txt": "c42702f0093ca1b9729f38bbf37c41b8f8e62e3b48e40143ea4daa196e90a1e6"
+  },
+  "output_sha256": {
+    "acoustic_features.csv": "5ba053ddcfaf2a5afc5c750e0bded44fdd91b0fd0be7e57fba0c9529ab5f6159",
+    "acoustic_test_summary.csv": "975356135d25782f5abd869f1957f0093bb492bc2f4bcc0b4bb004d4d366b218",
+    "acoustic_speaker_shifts.csv": "6ad5950693be77cdfbac80e9322731c27685e460b958ab34a1a5622888bafbf2",
+    "failure_acoustic_evidence.json": "e2a8073526217f414f94b05c86c966af33b179426141821d00620c8344322ff3",
+    "error_recurrence.csv": "75313c1b7ac00838c78eb4b5c6331504482383cac14ce81e1d30c4d05ef2c6e7",
+    "error_recurrence_summary.csv": "387fc1b4b614e3a691354fb5aa541a4d4a65b77d1f4f39634c55e9fa82f92eaf",
+    "fusion_change_events.csv": "5380881f01b6003ac34fb7684684c874fe473ba1a2e6815a7116f82ee6357b05",
+    "fusion_changes_by_emotion.csv": "981dbe1dc5982eb56017c9c0e368deadadc50de3ed24d165f8a3ae787946b9be",
+    "plots/acoustic_speaker_shifts.png": "ce54111fc448bc6f9db7326f7c13741dec643edff5bea7024f117689e68c60ab",
+    "plots/acoustic_speaker_shifts.pdf": "30c3c1c09c804e62e923dc45c31b0e2e51622ef0db674f5f81c4bbfacf19a9aa"
+  },
+  "limitations": [
+    "Whole-utterance descriptors omit timing, voice quality and phonetic detail.",
+    "Pitch can have octave errors; raw-autocorrelation estimates are not ground truth.",
+    "Speaker, acting style and recording conditions are confounded; no causal attribution.",
+    "Case selection was pre-existing and error-focused, not a representative sample."
+  ]
+}

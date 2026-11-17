@@ -15,5 +15,6 @@ mkdir -p .local/logs
 "$python" scripts/run_experiments.py --stage train
 "$python" scripts/run_experiments.py --stage test
 "$python" scripts/analyze_results.py
+"$python" scripts/analyze_acoustics.py
 "$python" scripts/build_report.py
 "$python" scripts/verify_results.py

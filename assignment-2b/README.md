@@ -40,13 +40,16 @@ and duplicate inventory under `data/manifests/` for machine-readable evidence.
 
 Tested on macOS ARM64, Python 3.12, with CPU training and four PyTorch threads. The
 frozen model revision and every experiment setting are in `configs/experiment.json`.
-`requirements.txt` pins the tested dependency versions. Internet access is needed
+`requirements.txt` pins training dependencies; `requirements-analysis.txt` includes
+those pins plus Praat/Parselmouth for the post-hoc acoustic analysis. Internet access is needed
 initially for the dataset and pretrained model; the experiments use no hosted API.
 
 ```bash
+git clone https://github.com/ParichayMago/iiith-assignment-2b-tess.git
+cd iiith-assignment-2b-tess/assignment-2b
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-analysis.txt
 mkdir -p .local/logs
 curl -fL --retry 2 \
   https://www.kaggle.com/api/v1/datasets/download/ejlok1/toronto-emotional-speech-set-tess \
@@ -57,6 +60,7 @@ python -m pytest -q tests
 python scripts/run_experiments.py --stage train
 python scripts/run_experiments.py --stage test
 python scripts/analyze_results.py
+python scripts/analyze_acoustics.py
 python scripts/build_report.py
 python scripts/verify_results.py
 ```
@@ -89,6 +93,11 @@ configuration or implementation, remove/move the affected checkpoints and rerun;
 do not combine checkpoints from different experiments. Saved checkpoints contain
 normalization statistics, hyperparameters, training history and the manifest hash.
 Evaluation refuses stale dataset hashes and mismatched fusion/speech checkpoints.
+The descriptive `control` field was corrected after training. Its original bytes and
+the exact prose-only amendment are preserved in `Results/training_config_original.json`
+and `Results/config_metadata_amendment.json`. No execution setting or trained weight
+changed. Resume ignores only that descriptive field; result verification validates
+the original source hashes and permits only this exact documented amendment.
 
 ## Fixed protocols
 
@@ -147,6 +156,16 @@ The optional Whisper audit is not a feature extractor for the emotion models.
 - `Results/fusion_comparison.csv`: paired corrections and newly introduced mistakes.
 - `Results/fusion_diagnostics.csv`: shuffled-text and mean-text substitution diagnostics.
   These are input perturbations, not additional independently trained models.
+- `Results/error_recurrence*.csv`: unique erroneous clips and errors recurring in all
+  three seeds. `Results/fusion_change_events.csv` identifies every fusion correction
+  and new mistake; `fusion_changes_by_emotion.csv` groups these events by true class.
+- `Results/acoustic_features.csv`: measured voiced F0 median/spread, voiced fraction,
+  RMS recorded level, spectral centroid and trimmed duration for all 2,800 recordings.
+  `acoustic_test_summary.csv` gives held-out speaker/class medians and quartiles;
+  `acoustic_speaker_shifts.csv` matches the same 30 test words between actors.
+  `failure_acoustic_evidence.json` compares the five existing errors with training-only
+  reference distributions. Methods, range-sensitivity checks and input/output hashes
+  are in `acoustic_analysis.json`. This analysis does not tune or retrain any model.
 - `Results/plots/representations.*`: PCA of temporal speech, contextual text and fused
   representations. Each PCA is fitted on training embeddings; identical test samples
   are plotted by emotion and speaker. Seed 13 was fixed in advance. PCA axes differ
@@ -170,6 +189,25 @@ a fresh-source replay of all four main-protocol systems at seed 13: the rebuilt
 manifest, selected weights, normalization statistics and prediction files matched
 exactly. That replay regenerated task features and checkpoints using the same
 installed dependency environment and cached pretrained-model download.
+It predates the documentation correction and post-hoc acoustic analysis; their
+additional checks do not constitute a new training replay.
+
+## Acoustic analysis scope
+
+`analyze_acoustics.py` uses the same resampling and saved trim boundaries as the
+classifier, with all original WAV hashes verified. Parselmouth 0.4.7 / Praat 6.1.38
+raw autocorrelation estimates F0 at 10 ms steps, primarily over 75-600 Hz, repeated
+at 60-700 Hz as a range-sensitivity check. Recorded RMS dBFS is not calibrated
+loudness; spectral centroids include voiced and unvoiced regions. Pitch estimates
+can contain octave errors and have not been manually annotated.
+
+Speaker shifts pair the same target words within each emotion, reporting median
+YAF-minus-OAF differences and 2,000 word-pair bootstrap percentile intervals
+(seed 1701). These intervals describe these two actors on these words, not a
+population of speakers. Speaker, acting style and recording conditions are
+confounded. Four fixed acoustic descriptors are compared with training-only class
+medians using training IQR scales; proximity is descriptive and cannot establish
+why a neural network erred. Case selection preceded this analysis and is error-focused.
 
 ## Repository and data access
 
@@ -191,3 +229,5 @@ at the pinned revision when generating features.
 2. Assignment-specified Kaggle mirror: https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess
 3. Sanh et al. (2019). *DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter.* https://arxiv.org/abs/1910.01108
 4. Frozen model and revision: https://huggingface.co/distilbert/distilbert-base-uncased/tree/12040accade4e8a0f71eabdb258fecc2e7e948be
+5. Praat raw autocorrelation method: https://www.fon.hum.uva.nl/praat/manual/pitch_analysis_by_raw_autocorrelation.html
+6. Parselmouth interface: https://parselmouth.readthedocs.io/en/stable/api_reference.html#parselmouth.Sound.to_pitch_ac

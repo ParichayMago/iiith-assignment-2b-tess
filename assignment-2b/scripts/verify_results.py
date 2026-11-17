@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from tess_emotion.data import ROOT,LABELS,config
+from tess_emotion.provenance import verify_training_snapshot
 
 
 def main():
@@ -38,8 +39,7 @@ def main():
                     np.testing.assert_allclose(accuracy,1/7,atol=1e-12)
                 checked.append({'protocol':protocol,'seed':seed,'pipeline':pipeline,'examples':len(f),'accuracy':accuracy})
     snapshot=json.loads((ROOT/'Results/run_manifest.json').read_text())
-    for name,digest in snapshot['source_sha256'].items():
-        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest, f'Training source changed: {name}'
+    amendments=verify_training_snapshot(ROOT,snapshot)
     table=pd.read_csv(ROOT/'Results/accuracy_table.csv').set_index(['protocol','pipeline'])
     for (protocol,pipeline),group in pd.DataFrame(checked).groupby(['protocol','pipeline']):
         np.testing.assert_allclose(group.accuracy.mean(),table.loc[(protocol,pipeline),'accuracy_mean'],atol=1e-12)
@@ -48,8 +48,31 @@ def main():
     for case in failures:
         f=pd.read_csv(ROOT/f'Results/predictions/{case["protocol"]}-13-fusion.csv').set_index('id').loc[case['id']]
         assert f.true_label!=f.predicted_label and f.predicted_label==case['fusion_prediction']
-    out={'status':'passed','training_source_snapshot_matches':True,'prediction_files_verified':len(checked),
-         'checks':['exact test IDs and labels','finite normalized probabilities','confidence and argmax','independent confusion matrix/accuracy/macro-F1','text-only deterministic 1/7 result','summary reconciliation','genuine failure cases'],'runs':checked}
+    acoustic=json.loads((ROOT/'Results/acoustic_analysis.json').read_text())
+    for section,prefix in [('input_sha256',ROOT),('source_sha256',ROOT),('output_sha256',ROOT/'Results')]:
+        for name,digest in acoustic[section].items():
+            assert hashlib.sha256((prefix/name).read_bytes()).hexdigest()==digest, f'Acoustic artifact changed: {name}'
+    features=pd.read_csv(ROOT/'Results/acoustic_features.csv').set_index('id')
+    assert features.index.is_unique and set(features.index)==set(manifest.id)
+    assert np.isfinite(features.to_numpy()).all()
+    evidence=json.loads((ROOT/'Results/failure_acoustic_evidence.json').read_text())
+    assert [c['id'] for c in evidence]==[c['id'] for c in failures]
+    indexed=manifest.set_index('id')
+    for case in evidence:
+        reference=indexed.loc[case['reference_ids']]
+        sample=indexed.loc[case['id']]
+        assert (reference['split_'+case['protocol']]=='train').all()
+        assert sample.word not in set(reference.word)
+        if case['protocol']=='main':assert (reference.speaker==sample.speaker).all()
+        for name,value in case['observed'].items():
+            np.testing.assert_allclose(value,features.loc[case['id'],name],rtol=1e-8)
+        for emotion,values in case['references'].items():
+            ref=features.loc[reference[reference.emotion==emotion].index]
+            assert len(ref)==values['n']==140
+            for name,value in values['median'].items():np.testing.assert_allclose(value,ref[name].median(),rtol=1e-8)
+    out={'status':'passed','training_source_snapshot_verified':True,'documented_metadata_amendments':amendments,'prediction_files_verified':len(checked),
+         'acoustic_recordings_verified':len(features),
+         'checks':['exact test IDs and labels','finite normalized probabilities','confidence and argmax','independent confusion matrix/accuracy/macro-F1','text-only deterministic 1/7 result','summary reconciliation','genuine failure cases','acoustic source/input/output hashes','complete finite acoustic measurements','training-only failure references and medians'],'runs':checked}
     (ROOT/'Results/verification.json').write_text(json.dumps(out,indent=2)+'\n')
     print(f'PASS: independently verified {len(checked)} prediction files, metrics, summaries and source hashes.')
 

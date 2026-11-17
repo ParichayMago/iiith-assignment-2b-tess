@@ -1,7 +1,11 @@
 {
   "status": "passed",
-  "training_source_snapshot_matches": true,
+  "training_source_snapshot_verified": true,
+  "documented_metadata_amendments": [
+    "configs/experiment.json: control description only"
+  ],
   "prediction_files_verified": 36,
+  "acoustic_recordings_verified": 2800,
   "checks": [
     "exact test IDs and labels",
     "finite normalized probabilities",
@@ -9,7 +13,10 @@
     "independent confusion matrix/accuracy/macro-F1",
     "text-only deterministic 1/7 result",
     "summary reconciliation",
-    "genuine failure cases"
+    "genuine failure cases",
+    "acoustic source/input/output hashes",
+    "complete finite acoustic measurements",
+    "training-only failure references and medians"
   ],
   "runs": [
     {

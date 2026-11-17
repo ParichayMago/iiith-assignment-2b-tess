@@ -3,10 +3,11 @@
 Reproducible speech-only, text-only and multimodal emotion recognition on TESS.
 
 - [Implementation and reproduction instructions](assignment-2b/README.md)
-- [Seven-page report](assignment-2b/report.pdf)
+- [Report with measured acoustic analysis](assignment-2b/report.pdf)
 - [Dataset audit](assignment-2b/Results/dataset_audit.json)
 - [Measured three-seed results](assignment-2b/Results/accuracy_table.csv)
 - [Independent result verification](assignment-2b/Results/verification.json)
+- [Acoustic measurements and analysis provenance](assignment-2b/Results/acoustic_analysis.json)
 - [Fresh-source reproduction check](assignment-2b/Results/fresh_reproduction.json)
 - [All 36 trained checkpoints](https://github.com/ParichayMago/iiith-assignment-2b-tess/releases/tag/assignment-2b)
 
