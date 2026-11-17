@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "source_commit": "afd8742542c892b084952e3856d0b0ceb628826b",
+  "method": "Extracted committed source into a fresh directory, audited the original ZIP, regenerated audio/text features, then retrained and tested all four main-protocol systems for seed 13. Used the same installed dependency environment and cached pretrained download, with no original task checkpoints or feature cache.",
+  "manifest_byte_identical": true,
+  "runs": [
+    {
+      "pipeline": "speech",
+      "predictions_byte_identical": true,
+      "selected_weights_identical": true,
+      "normalization_identical": true,
+      "selected_epoch": 19,
+      "predictions_sha256": "4785fc04ae1a66d34deff0718ceda75caee8ac0035c3aca93bf4706bc53b094f"
+    },
+    {
+      "pipeline": "text",
+      "predictions_byte_identical": true,
+      "selected_weights_identical": true,
+      "normalization_identical": true,
+      "selected_epoch": 2,
+      "predictions_sha256": "4b174ef19c99fa14ccea1015d91c23af98a310bbb30d181bb4984b9a9446f4f9"
+    },
+    {
+      "pipeline": "fusion",
+      "predictions_byte_identical": true,
+      "selected_weights_identical": true,
+      "normalization_identical": true,
+      "selected_epoch": 59,
+      "predictions_sha256": "53095268a40264ffc0550b5a8a0bb0a38df6ac18aca71ad4eebe74c739cdf0e3"
+    },
+    {
+      "pipeline": "speech_control",
+      "predictions_byte_identical": true,
+      "selected_weights_identical": true,
+      "normalization_identical": true,
+      "selected_epoch": 60,
+      "predictions_sha256": "5ddb09271a6b6d8f7835560e355b6cea92acea4e12ef91cc5dfb95992422ee8d"
+    }
+  ]
+}

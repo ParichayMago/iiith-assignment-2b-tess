@@ -164,6 +164,13 @@ Standard deviations describe training-seed variation on the same test set; they 
 not confidence intervals over a population. Timing measurements are from a shared
 local CPU and should not be interpreted as a controlled runtime benchmark.
 
+`Results/verification.json` independently reconciles all 36 exported prediction
+files against their metrics and summaries. `Results/fresh_reproduction.json` records
+a fresh-source replay of all four main-protocol systems at seed 13: the rebuilt
+manifest, selected weights, normalization statistics and prediction files matched
+exactly. That replay regenerated task features and checkpoints using the same
+installed dependency environment and cached pretrained-model download.
+
 ## Repository and data access
 
 Source, manifests, report and measured results are intended for the public assignment
