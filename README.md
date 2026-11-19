@@ -1,4 +1,26 @@
-# IIIT Hyderabad Assignment 2b
+# IIIT Hyderabad Assignment 2
+
+Parichay Mago's work for the Speech Processing Lab assignment, covering both parts.
+
+| Part | Implementation and instructions | Report | Outputs |
+|---|---|---|---|
+| 2a — MFA forced alignment | [Setup and reproduction](assignment-2a/README.md) | [Short PDF](assignment-2a/report.pdf) | [Six word/phone TextGrids](assignment-2a/results/textgrids/) |
+| 2b — Multimodal emotion recognition | [Setup and reproduction](assignment-2b/README.md) | [Full PDF](assignment-2b/report.pdf) | [Accuracy tables and plots](assignment-2b/Results/) |
+
+[The combined PDF](report.pdf) contains both reports for the Google Form's report upload.
+It preserves the standalone reports and adds bookmarks for each part. To rebuild it
+after editing either report, run `assignment-2b/.venv/bin/python scripts/build_submission_report.py`
+from the repository root, using the dependency environment described in 2b's README.
+
+## Assignment 2a
+
+The six supplied audio/transcript pairs are aligned with Montreal Forced Aligner.
+The reproducible pipeline prepares the corpus, checks vocabulary coverage, applies
+documented pronunciation additions, generates word and phone TextGrids, and checks
+them using Praat through Parselmouth. The report shows the alignment visualization
+and documents two trailing-silence errors and the speech windows used to review them.
+
+## Assignment 2b
 
 Reproducible speech-only, text-only and multimodal emotion recognition on TESS.
 
@@ -30,3 +52,11 @@ a consistent advantage over speech and the parameter-matched classifier control.
 
 Author: Parichay Mago. Dataset and pretrained-model attribution are in the project
 README. Raw audio is downloaded from the provider and is not included here.
+
+## Submission instructions
+
+The lab's email asks for both parts in a public GitHub repository and submission
+through [the Google Form](https://forms.gle/hCyXpEyks9NAnGPS9). The form requires a
+name, email address, repository link and a PDF upload. The 2a brief additionally
+asks for the short 2a PDF by email. Any linked files must be publicly accessible.
+The stated deadline is Sunday, November 22, 2026 at 11:59 p.m.
