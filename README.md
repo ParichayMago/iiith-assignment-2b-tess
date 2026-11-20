@@ -31,7 +31,7 @@ Reproducible speech-only, text-only and multimodal emotion recognition on TESS.
 - [Independent result verification](assignment-2b/Results/verification.json)
 - [Acoustic measurements and analysis provenance](assignment-2b/Results/acoustic_analysis.json)
 - [Fresh-source reproduction check](assignment-2b/Results/fresh_reproduction.json)
-- [All 36 trained checkpoints](https://github.com/ParichayMago/iiith-assignment-2b-tess/releases/tag/assignment-2b)
+- [All 36 trained checkpoints](https://github.com/ParichayMago/iiith-speech-assignment-2/releases/tag/assignment-2b)
 
 The audit removes 2,800 duplicate archive entries before splitting, leaving the
 complete 2,800-recording corpus. It verifies word/audio separation and reconstructs
